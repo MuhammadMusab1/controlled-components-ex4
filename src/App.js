@@ -43,10 +43,13 @@ function App() {
         </tbody>
       </table>
       <h2 className="heading">Add New</h2>
-      <h5 className="h5-heading">Name</h5>
-      <input type="text" class="form-control" />
-      <h5 className="h5-heading">Job</h5>
-      <input type="text" class="form-control" />
+      <form>
+        <h5 className="h5-heading">Name</h5>
+        <input type="text" class="form-control" />
+        <h5 className="h5-heading">Job</h5>
+        <input type="text" class="form-control" />
+        <Button className="submit-button">Submit</Button>
+      </form>
     </div>
   );
 }
