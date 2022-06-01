@@ -1,8 +1,8 @@
 import Button from "react-bootstrap/Button";
 function Staff(props) {
-  const { name, job } = props;
+  const { name, job, id } = props;
   return (
-    <tr>
+    <tr data-id={id}>
       <td>{name}</td>
       <td>{job}</td>
       <td>

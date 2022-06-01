@@ -1,8 +1,8 @@
 import Staff from "./Staff";
 function StaffList(props) {
   const { staffList } = props;
-  const reactStaffElements = staffList.map((staff) => {
-    return <Staff name={staff.name} job={staff.job} />;
+  const reactStaffElements = staffList.map((staff, index) => {
+    return <Staff name={staff.name} job={staff.job} key={index} id={index} />;
   });
   return (
     <table className="table">
