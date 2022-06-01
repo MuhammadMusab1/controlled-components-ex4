@@ -15,12 +15,18 @@ function App() {
   ];
 
   const [staffs, setStaffs] = useState(initialState);
+  //Add new staff
+  function handleAddNewStaff(staff) {
+    setStaffs((prevState) => {
+      return [{ name: staff.name, job: staff.job }, ...prevState];
+    });
+  }
   return (
     <div className="app">
       <Header />
       <StaffList staffList={staffs} />
       <Add />
-      <Form />
+      <Form addNewStaff={handleAddNewStaff} />
     </div>
   );
 }
