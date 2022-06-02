@@ -9,22 +9,29 @@ import StaffList from "./components/StaffList";
 
 function App() {
   const initialState = [
-    { name: "Mohammed", job: "Instructor" },
-    { name: "Chris", job: "Instructor" },
-    { name: "Jessica", job: "Instructor" },
+    { id: 1, name: "Mohammed", job: "Instructor" },
+    { id: 2, name: "Chris", job: "Instructor" },
+    { id: 3, name: "Jessica", job: "Instructor" },
   ];
 
   const [staffs, setStaffs] = useState(initialState);
+  const randomId = +(Math.random() * 100).toFixed(4);
   //Add new staff
   function handleAddNewStaff(staff) {
     setStaffs((prevState) => {
-      return [{ name: staff.name, job: staff.job }, ...prevState];
+      return [{ name: staff.name, job: staff.job, id: randomId }, ...prevState];
+    });
+  }
+  //Remove existing staff
+  function handleRemoveStaff(staffId) {
+    setStaffs((prevState) => {
+      return prevState.filter((staff) => staff.id !== staffId);
     });
   }
   return (
     <div className="app">
       <Header />
-      <StaffList staffList={staffs} />
+      <StaffList staffList={staffs} removeStaff={handleRemoveStaff} />
       <Add />
       <Form addNewStaff={handleAddNewStaff} />
     </div>
