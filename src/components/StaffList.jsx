@@ -1,8 +1,16 @@
 import Staff from "./Staff";
 function StaffList(props) {
-  const { staffList } = props;
+  const { staffList, removeStaff } = props;
   const reactStaffElements = staffList.map((staff, index) => {
-    return <Staff name={staff.name} job={staff.job} key={index} id={index} />;
+    return (
+      <Staff
+        name={staff.name}
+        job={staff.job}
+        key={index}
+        id={staff.id}
+        removeStaff={removeStaff}
+      />
+    );
   });
   return (
     <table className="table">
